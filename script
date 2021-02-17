@@ -1,0 +1,22 @@
+$('.slider').owlCarousel({
+  items: 1,
+  nav: true,
+  margin: 20
+})
+
+function numDots() {
+  let all = document.querySelector('.all') //span со всеми цифрами
+  let dots = document.querySelectorAll('.owl-dot')
+  let current = document.querySelector('.current') //текущая позиция
+  let slider = $('.owl-carousel');
+
+  all.innerHTML = dots.length
+  slider.on('changed.owl.carousel', function(event) {
+    dots.forEach((item, index) => {
+      if(item.classList.contains('active')) {
+        current.innerHTML = index + 1
+      }
+    })
+  })
+}
+numDots()
